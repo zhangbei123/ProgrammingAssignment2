@@ -1,9 +1,4 @@
-
-## Inversion of a matrix may take a lot of time
-## so these two functions allow to re-use matrix inversion result, once it has been created
-
-## makeCacheMatrix: This function creates a special "matrix" object that can cache its inverse.
-
+## This function returns  a new "matrix", and saves a cache matrix produced within.
 makeCacheMatrix <- function(x = matrix()) {
   m <- NULL
      set <- function(y) {
@@ -19,10 +14,10 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## cacheSolve: This function computes the inverse of the special "matrix" returned by 
-## makeCacheMatrix above. If the inverse has already been calculated (and the matrix 
-## has not changed), then the cachesolve should retrieve the inverse from the cache.
 
+## This function creates the value of the inverse of a "matrix" returned by the function above,and it will return 
+## "getting cached data" when the original matrix(x) repeats, and save the computing time.       
+       so that when we need it again, we do not need to recalculate.
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
   m <- x$getsolve()
