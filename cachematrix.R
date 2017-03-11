@@ -16,11 +16,10 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 ## This function creates the value of the inverse of a "matrix" returned by the function above,and it will return 
-## "getting cached data" when the original matrix(x) repeats, and save the computing time.       
-       so that when we need it again, we do not need to recalculate.
+## "getting cached data" when the original matrix(x) repeats, and save the computing time as we do not need to recalculate.       
+      
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
-  m <- x$getsolve()
+       m <- x$getsolve()
      if(!is.null(m)) {
          message("getting cached data")
          return(m)
